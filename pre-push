@@ -1,0 +1,25 @@
+#!/bin/sh
+
+    cat <<\EOF
+   ___              ___           _
+  / _ \_ __ ___    / _ \_   _ ___| |__
+ / /_)/ '__/ _ \  / /_)/ | | / __| '_ \
+/ ___/| | |  __/ / ___/| |_| \__ \ | | |
+\/    |_|  \___| \/     \__,_|___/_| |_|
+EOF
+
+set -e
+
+echo
+./code-quality/phplint.sh
+echo
+./code-quality/phpmd.sh
+echo
+./code-quality/phpcs.sh
+echo
+./code-quality/phpstan.sh
+echo
+./code-quality/phpunit.sh
+echo
+
+exit 0
